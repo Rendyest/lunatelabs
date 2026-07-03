@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brenda Luo — Lunate Labs</title>
+<meta name="description" content="Brenda Luo, OT Reg. AB, MOT — founder of Lunate Labs and Optimizing Transformations. Building real world ready rehabtech.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#0E5E5A;
+    --cyan-midnight:#004F59;
+    --teal-surgical:#2E8C84;
+    --mint:#A8E0D8;
+    --teal-botanical:#6FB7A9;
+    --verdigris:#C7E3DC;
+    --grey-warm:#8A8A8A;
+    --fog:#F8F9F9;
+    --charcoal:#2B2B2B;
+
+    --serif: 'Fraunces', serif;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+
+    --track-w: 1px;
+    --node-d: 10px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--fog);
+    color:var(--charcoal);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal-surgical);
+  }
+  .eyebrow.on-dark{ color:var(--mint); }
+
+  h1,h2,h3{ font-family:var(--serif); font-weight:500; letter-spacing:-0.01em; color:var(--charcoal);}
+  h2{ font-size:clamp(1.6rem, 2.6vw, 2.15rem); font-weight:500; margin-bottom:0.3rem;}
+  .section-sub{ color:var(--grey-warm); font-size:0.98rem; max-width:52ch; margin-bottom:2.2rem;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1rem clamp(1.25rem, 4vw, 3rem);
+    background:rgba(248,249,249,0.0);
+    backdrop-filter:blur(0px);
+    transition:background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+  }
+  nav.scrolled{
+    background:rgba(248,249,249,0.88);
+    backdrop-filter:blur(10px);
+    box-shadow:0 1px 0 rgba(43,43,43,0.06);
+  }
+  .brandmark{
+    font-family:var(--mono); font-size:0.78rem; letter-spacing:0.08em;
+    display:flex; align-items:center; gap:0.55rem; color:var(--charcoal);
+    text-decoration:none;
+  }
+  .brandmark .dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--teal-deep);
+    box-shadow:0 0 0 3px var(--verdigris);
+  }
+  .navlinks{ display:flex; gap:1.6rem; align-items:center; }
+  .navlinks a{
+    font-family:var(--mono); font-size:0.74rem; letter-spacing:0.06em;
+    text-decoration:none; color:var(--grey-warm);
+    text-transform:uppercase;
+    transition:color 0.2s ease;
+  }
+  .navlinks a:hover{ color:var(--teal-deep); }
+  .nav-cta{
+    font-family:var(--mono); font-size:0.74rem; letter-spacing:0.04em;
+    background:var(--teal-deep); color:var(--fog) !important;
+    padding:0.5rem 1rem; border-radius:2px; text-decoration:none;
+    text-transform:uppercase;
+  }
+  .navlinks-mobile-toggle{ display:none; }
+
+  @media (max-width: 780px){
+    .navlinks a:not(.nav-cta){ display:none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background: radial-gradient(120% 140% at 12% 0%, var(--teal-deep) 0%, var(--cyan-midnight) 52%, #003b42 100%);
+    color:var(--fog);
+    min-height:100svh;
+    display:flex; align-items:center;
+    padding:7rem clamp(1.25rem, 4vw, 3rem) 4rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:3rem;
+    max-width:1180px; margin:0 auto; width:100%;
+    align-items:center; position:relative; z-index:2;
+  }
+  .hero h1{
+    color:var(--fog);
+    font-size:clamp(2.4rem, 5.2vw, 4.1rem);
+    line-height:1.04;
+    margin:0.9rem 0 1.3rem;
+  }
+  .hero h1 em{ font-style:italic; color:var(--mint); }
+  .hero-cred{
+    font-family:var(--mono); font-size:0.85rem; color:var(--verdigris);
+    letter-spacing:0.03em; margin-bottom:0.6rem;
+  }
+  .hero p.lede{
+    font-size:1.08rem; color:rgba(248,249,249,0.82); max-width:46ch; margin-bottom:2.1rem;
+  }
+  .hero-chips{ display:flex; gap:0.75rem; flex-wrap:wrap; }
+  .chip{
+    font-family:var(--mono); font-size:0.76rem; letter-spacing:0.03em;
+    border:1px solid rgba(168,224,216,0.45); color:var(--mint);
+    padding:0.55rem 0.95rem; border-radius:2px; text-decoration:none;
+    transition:background 0.2s ease, border-color 0.2s ease;
+    display:inline-flex; align-items:center; gap:0.45rem;
+  }
+  .chip:hover{ background:rgba(168,224,216,0.1); border-color:var(--mint); }
+
+  .hero-visual{ position:relative; aspect-ratio:1/1; max-width:440px; margin:0 auto; }
+  .hero-visual svg{ width:100%; height:100%; }
+  .pose-line{ fill:none; stroke:var(--teal-botanical); stroke-width:1.4; opacity:0.85; }
+  .pose-node{ fill:var(--mint); }
+  .pose-node.pulse{ animation:posepulse 2.6s ease-in-out infinite; }
+  .pose-node-core{ fill:var(--mint); }
+  @keyframes posepulse{
+    0%,100%{ opacity:1; r:4.5; }
+    50%{ opacity:0.55; r:6.5; }
+  }
+
+  /* ---------- TRACK / SIGNATURE MOTIF ---------- */
+  .page-body{ position:relative; max-width:1180px; margin:0 auto; padding:0 clamp(1.25rem, 4vw, 3rem); }
+  .track{
+    position:absolute; left:clamp(1.25rem, 4vw, 3rem);
+    top:0; bottom:0; width:var(--track-w);
+    background:linear-gradient(to bottom, var(--verdigris), var(--verdigris));
+    z-index:0;
+  }
+  .track-fill{
+    position:absolute; left:0; top:0; width:100%; height:0%;
+    background:var(--teal-surgical);
+    transition:height 0.15s linear;
+  }
+  @media (max-width: 780px){ .track{ display:none; } }
+
+  section.block{
+    position:relative;
+    padding:5.2rem 0 5.2rem clamp(2.2rem, 5vw, 3.6rem);
+    border-top:1px solid rgba(43,43,43,0.06);
+  }
+  section.block:first-of-type{ border-top:none; }
+  .node{
+    position:absolute; left:calc(-1 * clamp(1rem, 4vw, 3.6rem) - (var(--node-d)/2) + 1px);
+    top:5.5rem;
+    width:var(--node-d); height:var(--node-d); border-radius:50%;
+    background:var(--fog); border:2px solid var(--verdigris);
+    transition:background 0.3s ease, border-color 0.3s ease;
+  }
+  .node.in-view{ background:var(--teal-surgical); border-color:var(--teal-surgical); }
+  @media (max-width:780px){
+    section.block{ padding-left:0; }
+    .node{ display:none; }
+  }
+
+  .block-soft{ background:var(--verdigris); }
+
+  /* ---------- WHAT I BUILD / TEACH / CONSULT cards ---------- */
+  .brand-tag{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    font-family:var(--mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--cyan-midnight); background:var(--mint);
+    padding:0.3rem 0.7rem; border-radius:2px; margin-bottom:1rem;
+  }
+  .brand-tag.clinical{ color:var(--teal-deep); background:var(--soft, var(--verdigris)); border:1px solid var(--teal-botanical); }
+
+  .card-grid{ display:grid; gap:1.4rem; }
+  .card{
+    background:var(--fog); border:1px solid rgba(43,43,43,0.08);
+    padding:1.6rem 1.7rem; border-radius:4px;
+  }
+  .block-soft .card{ background:#fff; }
+  .card h3{ font-size:1.15rem; margin-bottom:0.5rem; }
+  .card p{ color:var(--grey-warm); font-size:0.95rem; }
+  .card .meta{ font-family:var(--mono); font-size:0.72rem; color:var(--teal-surgical); margin-top:0.7rem; letter-spacing:0.03em;}
+
+  /* ---------- LIST ROWS (speaking, awards, press, affiliations) ---------- */
+  .rowlist{ display:flex; flex-direction:column; }
+  .row{
+    display:grid; grid-template-columns:110px 1fr auto; gap:1.2rem;
+    padding:1.1rem 0; border-bottom:1px solid rgba(43,43,43,0.08);
+    align-items:baseline;
+  }
+  .row:last-child{ border-bottom:none; }
+  .row .yr{ font-family:var(--mono); font-size:0.78rem; color:var(--teal-surgical); }
+  .row .title{ font-weight:500; }
+  .row .place{ color:var(--grey-warm); font-size:0.9rem; }
+  .row .tagnote{
+    font-family:var(--mono); font-size:0.68rem; color:var(--grey-warm);
+    text-align:right; white-space:nowrap; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  @media (max-width:640px){
+    .row{ grid-template-columns:1fr; gap:0.3rem; }
+    .row .tagnote{ text-align:left; }
+  }
+
+  .press-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1rem; }
+  .press-item{
+    display:block; background:#fff; border:1px solid rgba(43,43,43,0.08);
+    padding:1.2rem 1.3rem; border-radius:4px; text-decoration:none;
+    transition:border-color 0.2s ease, transform 0.2s ease;
+  }
+  .press-item:hover{ border-color:var(--teal-surgical); transform:translateY(-2px); }
+  .press-item .src{ font-family:var(--mono); font-size:0.68rem; color:var(--teal-surgical); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem;}
+  .press-item .headline{ font-size:0.92rem; color:var(--charcoal); }
+
+  .chiprow{ display:flex; flex-wrap:wrap; gap:0.6rem; }
+  .aff-chip{
+    font-family:var(--mono); font-size:0.78rem;
+    background:#fff; border:1px solid var(--teal-botanical); color:var(--teal-deep);
+    padding:0.5rem 0.9rem; border-radius:20px;
+  }
+
+  .currently-list{ list-style:none; display:flex; flex-direction:column; gap:0.9rem; }
+  .currently-list li{
+    display:flex; gap:0.8rem; align-items:flex-start; font-size:0.98rem;
+  }
+  .currently-list .marker{
+    width:7px; height:7px; margin-top:0.55rem; border-radius:50%;
+    background:var(--teal-surgical); flex-shrink:0;
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    background:var(--cyan-midnight); color:var(--fog);
+    padding:5rem clamp(1.25rem,4vw,3rem) 3rem;
+    margin-top:2rem;
+  }
+  .footer-inner{ max-width:1180px; margin:0 auto; }
+  footer h2{ color:var(--fog); }
+  footer .section-sub{ color:var(--verdigris); }
+  .contact-row{ display:flex; flex-wrap:wrap; gap:1rem; margin:1.8rem 0 3rem; }
+  .btn-primary{
+    font-family:var(--mono); font-size:0.85rem; letter-spacing:0.03em;
+    background:var(--mint); color:var(--cyan-midnight);
+    padding:0.9rem 1.5rem; border-radius:2px; text-decoration:none;
+    display:inline-block; transition:background 0.2s ease;
+  }
+  .btn-primary:hover{ background:var(--fog); }
+  .btn-ghost{
+    font-family:var(--mono); font-size:0.85rem;
+    border:1px solid rgba(168,224,216,0.5); color:var(--mint);
+    padding:0.9rem 1.5rem; border-radius:2px; text-decoration:none;
+    display:inline-block;
+  }
+  .footer-meta{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+    padding-top:2rem; border-top:1px solid rgba(168,224,216,0.18);
+    font-family:var(--mono); font-size:0.72rem; color:var(--verdigris);
+  }
+
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
+  @media (max-width:700px){ .two-col{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="brandmark"><span class="dot"></span> LUNATE LABS — Brenda Luo</a>
+  <div class="navlinks">
+    <a href="#build">Build</a>
+    <a href="#teach">Teach</a>
+    <a href="#consult">Consult</a>
+    <a href="#press">Press</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-cred">OT REG. AB · MOT · CALGARY, AB</div>
+      <div class="eyebrow on-dark">Founder, Lunate Labs &amp; Optimizing Transformations</div>
+      <h1>Building real world<br>ready <em>rehabtech.</em></h1>
+      <p class="lede">I work at the intersection of clinical occupational therapy, human-centered design, and responsible AI — turning rehab science into products, curricula, and consulting that hold up outside the lab.</p>
+      <div class="hero-chips">
+        <a href="#build" class="chip">→ What I build</a>
+        <a href="#teach" class="chip">→ What I teach</a>
+        <a href="#consult" class="chip">→ How I consult</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <!-- pose-landmark motif: simplified tracked figure, nodding to Mirra Call's computer-vision core -->
+        <g class="pose-line">
+          <line x1="200" y1="90" x2="200" y2="210"></line>
+          <line x1="200" y1="120" x2="130" y2="160"></line>
+          <line x1="130" y1="160" x2="95" y2="220"></line>
+          <line x1="200" y1="120" x2="270" y2="160"></line>
+          <line x1="270" y1="160" x2="305" y2="220"></line>
+          <line x1="200" y1="210" x2="150" y2="300"></line>
+          <line x1="150" y1="300" x2="140" y2="365"></line>
+          <line x1="200" y1="210" x2="250" y2="300"></line>
+          <line x1="250" y1="300" x2="260" y2="365"></line>
+        </g>
+        <circle cx="200" cy="60" r="26" class="pose-line" fill="none"></circle>
+        <g>
+          <circle cx="200" cy="120" r="5" class="pose-node pulse"></circle>
+          <circle cx="130" cy="160" r="4.5" class="pose-node"></circle>
+          <circle cx="270" cy="160" r="4.5" class="pose-node"></circle>
+          <circle cx="95" cy="220" r="4.5" class="pose-node pulse"></circle>
+          <circle cx="305" cy="220" r="4.5" class="pose-node"></circle>
+          <circle cx="200" cy="210" r="5" class="pose-node pulse"></circle>
+          <circle cx="150" cy="300" r="4.5" class="pose-node"></circle>
+          <circle cx="250" cy="300" r="4.5" class="pose-node"></circle>
+          <circle cx="140" cy="365" r="4.5" class="pose-node"></circle>
+          <circle cx="260" cy="365" r="4.5" class="pose-node"></circle>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="page-body">
+  <div class="track"><div class="track-fill" id="trackFill"></div></div>
+
+  <!-- WHAT I BUILD -->
+  <section class="block" id="build">
+    <div class="node"></div>
+    <span class="brand-tag">Lunate Labs</span>
+    <h2>What I build</h2>
+    <p class="section-sub">Hardware and AI for rehabilitation, built to work in a clinic, not just a demo.</p>
+    <div class="card-grid" style="grid-template-columns:1fr;">
+      <div class="card">
+        <h3>Mirra Call</h3>
+        <p>A computer-vision rehabilitation device that watches movement and gives real-time feedback, without a clinician standing over every rep. Runs on an NVIDIA Jetson hardware stack with MediaPipe for pose tracking and a local LLM for on-device reasoning — no patient video ever needs to leave the room.</p>
+        <div class="meta">JETSON · MEDIAPIPE · LOCAL LLM · EDGE COMPUTE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I TEACH -->
+  <section class="block block-soft" id="teach">
+    <div class="node"></div>
+    <span class="brand-tag clinical">Lunate Labs × Optimizing Transformations</span>
+    <h2>What I teach</h2>
+    <p class="section-sub">Bringing AI literacy to the clinicians who'll actually be accountable for using it well.</p>
+    <div class="card-grid two-col">
+      <div class="card">
+        <h3>CAOT RAI Curriculum</h3>
+        <p>An AI literacy and responsible-AI course for occupational therapy practitioners, commissioned by the Canadian Association of Occupational Therapists.</p>
+        <div class="meta">COMMISSIONED · CAOT</div>
+      </div>
+      <div class="card">
+        <h3>Clicks &amp; Clinicians</h3>
+        <p>A community building AI and tech literacy for OTs, and giving healthtech founders a direct line to clinical validation and marketing feedback.</p>
+        <div class="meta">COMMUNITY · LAUNCHING</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I CONSULT -->
+  <section class="block" id="consult">
+    <div class="node"></div>
+    <span class="brand-tag clinical">Optimizing Transformations</span>
+    <h2>How I consult</h2>
+    <p class="section-sub">Clinical depth applied to product and program work, for organizations whose values line up with mine.</p>
+    <div class="card-grid two-col">
+      <div class="card">
+        <h3>Product &amp; service design</h3>
+        <p>Inclusive innovation, user experience research, and service design grounded in clinical practice.</p>
+      </div>
+      <div class="card">
+        <h3>Program design &amp; evaluation</h3>
+        <p>Building and evaluating programs, plus workplace wellness consulting for teams under real operational pressure.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.6rem; color:var(--grey-warm); font-size:0.95rem;">
+      <strong style="color:var(--charcoal);">Sectors:</strong> health, healthtech, social innovation, education, edtech, mental health.
+      <strong style="color:var(--charcoal); display:block; margin-top:0.3rem;">Fit:</strong> human-centered design, UX-forward teams, B-Corp aligned organizations.
+    </p>
+  </section>
+
+  <!-- SPEAKING -->
+  <section class="block block-soft" id="speaking">
+    <div class="node"></div>
+    <span class="eyebrow">Speaking &amp; thought leadership</span>
+    <h2 style="margin-top:0.4rem;">Selected engagements</h2>
+    <p class="section-sub">Talks chosen to speak to five different rooms — developers, enterprise, academia, startups, and design.</p>
+    <div class="rowlist">
+      <div class="row">
+        <div class="yr">2025</div>
+        <div><div class="title">Designing for Calm, Rational Users: Responsible AI in Clinical Contexts</div><div class="place">NDC Toronto</div></div>
+        <div class="tagnote">Developer</div>
+      </div>
+      <div class="row">
+        <div class="yr">2025</div>
+        <div><div class="title">Innovation in Healthcare</div><div class="place">Panel, KPMG Ignition — Calgary, AB</div></div>
+        <div class="tagnote">Enterprise / Investor</div>
+      </div>
+      <div class="row">
+        <div class="yr">2025</div>
+        <div><div class="title">See the Difference: Computer Vision Rehab Tech for Older Adults</div><div class="place">UAlberta Innovation, Knowledge Mobilization + Partnerships — Edmonton, AB</div></div>
+        <div class="tagnote">Academic / Research</div>
+      </div>
+      <div class="row">
+        <div class="yr">2025</div>
+        <div><div class="title">Closing the Rehab Gap</div><div class="place">Edmonton Startup Week — Edmonton, AB</div></div>
+        <div class="tagnote">Startup Ecosystem</div>
+      </div>
+      <div class="row">
+        <div class="yr">2025</div>
+        <div><div class="title">Designing for the Future of Rehabilitation</div><div class="place">SAIT Applied UX — Calgary, AB</div></div>
+        <div class="tagnote">Design / Education</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section class="block" id="recognition">
+    <div class="node"></div>
+    <span class="eyebrow">Recognition &amp; awards</span>
+    <h2 style="margin-top:0.4rem;">Recognition</h2>
+    <div class="chiprow">
+      <span class="aff-chip">CAHBI NextGen Winner</span>
+      <span class="aff-chip">Canada New Horizons for Seniors Grant</span>
+      <span class="aff-chip">CMPG Pitch Challenge Finalist</span>
+      <span class="aff-chip">Tech Futures Challenge — Silver Achievement (MindFuel)</span>
+      <span class="aff-chip">Spark Global Team</span>
+    </div>
+  </section>
+
+  <!-- CURRENTLY -->
+  <section class="block block-soft" id="currently">
+    <div class="node"></div>
+    <span class="eyebrow">Right now</span>
+    <h2 style="margin-top:0.4rem;">Currently</h2>
+    <ul class="currently-list">
+      <li><span class="marker"></span> Building toward the Future Caribbean Buildathon.</li>
+      <li><span class="marker"></span> Finishing the CAOT responsible-AI curriculum for OT practitioners.</li>
+      <li><span class="marker"></span> Launching Clicks &amp; Clinicians.</li>
+    </ul>
+  </section>
+
+  <!-- AFFILIATIONS -->
+  <section class="block" id="affiliations">
+    <div class="node"></div>
+    <span class="eyebrow">Affiliations</span>
+    <h2 style="margin-top:0.4rem;">Affiliations</h2>
+    <div class="chiprow">
+      <span class="aff-chip">NAT — Board</span>
+      <span class="aff-chip">AltaML</span>
+      <span class="aff-chip">IncluCity Calgary</span>
+      <span class="aff-chip">University of Alberta</span>
+      <span class="aff-chip">University of Calgary</span>
+    </div>
+  </section>
+
+  <!-- PRESS -->
+  <section class="block block-soft" id="press">
+    <div class="node"></div>
+    <span class="eyebrow">Press &amp; features</span>
+    <h2 style="margin-top:0.4rem;">Press &amp; features</h2>
+    <div class="press-grid">
+      <a class="press-item" href="https://www.instagram.com/p/DZIZrqhGR67/" target="_blank" rel="noopener">
+        <div class="src">MindFuel</div>
+        <div class="headline">Tech Futures Challenge feature</div>
+      </a>
+      <a class="press-item" href="https://meshconference.com/speakers/brenda-luo/" target="_blank" rel="noopener">
+        <div class="src">MESH Conference</div>
+        <div class="headline">Speaker profile</div>
+      </a>
+      <a class="press-item" href="https://www.linkedin.com/posts/kerryharmer_kpmgignition-healthcare-innovation-share-7391609034723815424--rz_/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAwSSVcBodGWmwP1TqVWgzuR57AwQcYnvIc" target="_blank" rel="noopener">
+        <div class="src">KPMG Ignition</div>
+        <div class="headline">Healthcare Innovation feature</div>
+      </a>
+      <a class="press-item" href="https://digitalalberta.com/designing-digital-products-for-inclusivity/" target="_blank" rel="noopener">
+        <div class="src">Digital Alberta</div>
+        <div class="headline">Designing Digital Products for Inclusivity</div>
+      </a>
+      <a class="press-item" href="https://www.facebook.com/RDPolytechCIMTAC/posts/are-you-passionate-about-improving-the-lives-of-older-adultswe-invite-you-to-par/1034599912011858/" target="_blank" rel="noopener">
+        <div class="src">RDPolytech CIMTAC</div>
+        <div class="headline">Program feature</div>
+      </a>
+      <a class="press-item" href="https://www.linkedin.com/posts/calgary-innovation-coalition_the-founder-action-table-kick-off-event-brought-activity-7438350763598442496-HmCu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAwSSVcBodGWmwP1TqVWgzuR57AwQcYnvIc" target="_blank" rel="noopener">
+        <div class="src">Calgary Innovation Coalition</div>
+        <div class="headline">Founder Action Table kickoff</div>
+      </a>
+      <a class="press-item" href="https://www.w21c.org/spark-teams/" target="_blank" rel="noopener">
+        <div class="src">W21C</div>
+        <div class="headline">Spark Teams</div>
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <span class="eyebrow on-dark">Get in touch</span>
+    <h2 style="margin-top:0.4rem;">Let's talk rehabtech, curriculum, or consulting.</h2>
+    <p class="section-sub">Open to buildathon partners, healthtech investors, and consulting clients who care about human-centered design.</p>
+    <div class="contact-row">
+      <a class="btn-primary" href="mailto:lunatelabs@gmail.com">lunatelabs@gmail.com</a>
+      <a class="btn-ghost" href="#top">Back to top ↑</a>
+    </div>
+    <div class="footer-meta">
+      <span>© <span id="year"></span> Lunate Labs — Brenda Luo, OT Reg. AB, MOT</span>
+      <span>Calgary, Alberta, Canada</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav background on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // track fill + node activation, tied to the section anchors (mirrors the pose-tracking motif in the hero)
+  const track = document.getElementById('trackFill');
+  const blocks = Array.from(document.querySelectorAll('section.block'));
+  const nodes = Array.from(document.querySelectorAll('.node'));
+
+  function updateTrack(){
+    const body = document.querySelector('.page-body');
+    const rect = body.getBoundingClientRect();
+    const total = body.offsetHeight;
+    const viewed = Math.min(Math.max(-rect.top + window.innerHeight * 0.4, 0), total);
+    const pct = total > 0 ? (viewed / total) * 100 : 0;
+    track.style.height = pct + '%';
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const idx = blocks.indexOf(entry.target);
+      if (idx > -1 && entry.isIntersecting) {
+        nodes[idx].classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.25 });
+
+  blocks.forEach(b => io.observe(b));
+
+  window.addEventListener('scroll', updateTrack);
+  window.addEventListener('resize', updateTrack);
+  updateTrack();
+</script>
+
+</body>
+</html>

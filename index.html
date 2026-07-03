@@ -129,6 +129,11 @@
     font-family:var(--mono); font-size:0.85rem; color:var(--verdigris);
     letter-spacing:0.03em; margin-bottom:0.6rem;
   }
+  .hero-cred a{
+    color:var(--verdigris); text-decoration:none; border-bottom:1px dotted rgba(199,227,220,0.55);
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .hero-cred a:hover{ color:var(--mint); border-color:var(--mint); }
   .hero p.lede{
     font-size:1.08rem; color:rgba(248,249,249,0.82); max-width:46ch; margin-bottom:2.1rem;
   }
@@ -286,7 +291,9 @@
     border:1px solid rgba(168,224,216,0.5); color:var(--mint);
     padding:0.9rem 1.5rem; border-radius:2px; text-decoration:none;
     display:inline-block;
+    transition:background 0.2s ease, border-color 0.2s ease;
   }
+  .btn-ghost:hover{ background:rgba(168,224,216,0.1); border-color:var(--mint); }
   .footer-meta{
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;
     padding-top:2rem; border-top:1px solid rgba(168,224,216,0.18);
@@ -313,7 +320,7 @@
 <header class="hero" id="top">
   <div class="hero-inner">
     <div>
-      <div class="hero-cred">OT REG. AB · MOT · CALGARY, AB</div>
+      <div class="hero-cred">OT REG. AB · MOT · CALGARY, AB &nbsp;·&nbsp; <a href="https://caot.ca/client/roster/clientRosterDetails.html?clientId=250904&clientRosterId=249" target="_blank" rel="noopener">Verify CAOT Registration ↗</a></div>
       <div class="eyebrow on-dark">Founder, Lunate Labs &amp; Optimizing Transformations</div>
       <h1>Building real world<br>ready <em>rehabtech.</em></h1>
       <p class="lede">I work at the intersection of clinical occupational therapy, human-centered design, and responsible AI — turning rehab science into products, curricula, and consulting that hold up outside the lab.</p>
@@ -530,6 +537,8 @@
     <p class="section-sub">Connect with me if you are a buildathon partner, healthtech investor, or interested in consulting.</p>
     <div class="contact-row">
       <a class="btn-primary" href="mailto:lunatelabs@gmail.com">lunatelabs@gmail.com</a>
+      <a class="btn-ghost" href="https://linkedin.com/in/theoptimizationtherapist/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn-ghost" href="https://caot.ca/client/roster/clientRosterDetails.html?clientId=250904&clientRosterId=249" target="_blank" rel="noopener">CAOT Registration ↗</a>
       <a class="btn-ghost" href="#top">Back to top ↑</a>
     </div>
     <div class="footer-meta">

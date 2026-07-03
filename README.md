@@ -1,4 +1,4 @@
-# Brenda Luo website
+# Website
 
    **https://rendyest.github.io/lunatelabs/**
 
